@@ -25,6 +25,9 @@ LINE = (
     "reality shortly."
 )
 
+# Gate guard: the entry must stay a single line of 1-200 characters.
+assert 1 <= len(LINE) <= 200, "entry line must be 1-200 characters"
+
 output_dir = Path(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output"))
 output_dir.mkdir(parents=True, exist_ok=True)
 (output_dir / "entry.txt").write_text(LINE, encoding="utf-8")
